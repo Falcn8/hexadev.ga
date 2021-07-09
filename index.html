@@ -2,7 +2,6 @@
 <html>
   <head>
     <style>
-      /* Cooked by Chef Excellence */
       html, body, #excellentContainerDiv {
         height: 100%;
         margin: 0;
@@ -70,14 +69,10 @@
       }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>'An Excellent Chef Excellence Simulator'</title>
+    <title>hexadev.ga</title>
   </head>
 
   <body>
-    <audio id="excellentSFX" preload="preload">
-      <source src="/excellentAssets/excellentJingle.ogg" type="audio/ogg">
-      <source src="/excellentAssets/excellentJingle.mp3" type="audio/mpeg">
-    </audio>
     <a href="https://github.com/excellentorg/excellentrepo" title="An Excellent Source">
       <img id="excellentSource" width="32" src="/excellentAssets/excellentOctocat.png">
     </a>
@@ -85,7 +80,7 @@
       <div id="floater"></div>
       <div id="excellentImageTagline">
       <img id="excellentChef" src="/excellentAssets/TheFaceOfExcellence.png"/>
-      <div id="excellentText">'An Excellent <span id="excellentPhrase"></span>'</div>
+      <div id="excellentText">'An excellent <span id="excellentPhrase"></span>'</div>
       </div>
     </div>
 
@@ -97,7 +92,7 @@
         var excellentSFX = document.getElementById("excellentSFX");
         var excellentTag = document.getElementById("excellentText");
         var excellentElement = document.getElementById("excellentPhrase");
-        if (excellentPhrase === "") { excellentPhrase = "Website"; }
+        if (excellentPhrase === "") { excellentPhrase = "Programmer"; }
         var excellentPhraseNode = document.createTextNode(excellentPhrase);
         excellentElement.appendChild(excellentPhraseNode);
         excellentSFX.play();
