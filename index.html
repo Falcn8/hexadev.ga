@@ -50,11 +50,45 @@
         font: 20px "Lato", sans-serif;
         color: #111;
       }
+        
+      .alert {
+        padding: 20px;
+        background-color: #f44336;
+        color: white;
+      }
+
+      .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .closebtn:hover {
+        color: black;
+      }
+        
+      .topright {
+        width: 70px;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+      }
       </style>
     </head>
   
     <body>
     <div class="bgimg-1">
+      <div class="topright">
+        <div class="alert">
+          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+          <strong>New!</strong> Visit <a href="/yes">this page</a> for the new website!
+        </div>
+      </div>
       <div class="caption">
        <span class="border">H Ξ X V G 0 И</span><br>
        <span class="border">HOBBY DEVELOPER</span>
