@@ -1,0 +1,31 @@
+.media-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.media-icons a {
+  height: 52px;
+  width: 52px;
+  border-radius: 100%;
+  background: var(--bg-accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  user-select: none;
+}
+
+.media-icons a:hover {
+  animation: funrotation .4s 1 ease-in-out;
+}
+
+@keyframes funrotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
