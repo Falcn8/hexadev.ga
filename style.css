@@ -21,7 +21,7 @@
   animation: funrotation .4s 1 ease-in-out;
 }
 
-.spinpfp img:hover {
+.spinpfp:hover {
   animation: funrotation .4s 1 ease-in-out;
 }
 
