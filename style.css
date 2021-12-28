@@ -21,6 +21,10 @@
   animation: funrotation .4s 1 ease-in-out;
 }
 
+.spinpfp img:hover {
+  animation: funrotation .4s 1 ease-in-out;
+}
+
 @keyframes funrotation {
   0% {
     transform: rotate(0deg);
