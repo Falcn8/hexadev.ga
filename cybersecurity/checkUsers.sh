@@ -30,14 +30,7 @@ if [[ "$response" != "y" ]]; then
     exit
 fi
 
-# echo -n "File for Authorized Administrators: "
-# read filename
-# aadmins=$(cat $filename) || exit
 aadmins=$(cat xa) || exit
-
-# echo -n "File for Authorized Users: "
-# read filename
-# aothers=$(cat $filename) || exit
 aothers=$(cat xu) || exit
 
 echo ""
@@ -54,18 +47,14 @@ while IFS= read -r user; do
             else
                 echo "Failed to delete $user"
             fi
-            # echo "$user should be removed"
-            # echo "sudo userdel -r $user"
             echo "---"
         else
-            sudo userdel $user sudo
+            sudo deluser $user sudo
             if [[ $? -eq 0 ]]; then
                 echo "Removed $user from sudo"
             else
                 echo "Failed to remove $user from sudo"
             fi
-            # echo "$user should be on others instead of admins"
-            # echo "sudo userdel $user sudo"
             echo "---"
         fi
     fi
@@ -82,8 +71,6 @@ while IFS= read -r user; do
             else
                 echo "Failed to delete $user"
             fi
-            # echo "$user should be removed"
-            # echo "sudo userdel -r $user"
             echo "---"
         else
             sudo usermod -aG $user
@@ -92,8 +79,6 @@ while IFS= read -r user; do
             else
                 echo "Failed to add $user to sudo"
             fi
-            # echo "$user should be on admins instead of others"
-            # echo "sudo usermod -aG $user"
             echo "---"
         fi
     fi
