@@ -43,17 +43,17 @@ while IFS= read -r user; do
         if [[ "$okx" != *"$user"* ]]; then
             sudo userdel $user
             if [[ $? -eq 0 ]]; then
-                echo "Deleted $user"
+                echo "[+] Deleted $user"
             else
-                echo "Failed to delete $user"
+                echo "[-] Failed to delete $user"
             fi
             echo "---"
         else
             sudo deluser $user sudo
             if [[ $? -eq 0 ]]; then
-                echo "Removed $user from sudo"
+                echo "[+] Removed $user from sudo"
             else
-                echo "Failed to remove $user from sudo"
+                echo "[-] Failed to remove $user from sudo"
             fi
             echo "---"
         fi
@@ -67,17 +67,17 @@ while IFS= read -r user; do
         if [[ "$okx" != *"$user"* ]]; then
             sudo userdel $user
             if [[ $? -eq 0 ]]; then
-                echo "Deleted $user"
+                echo "[+] Deleted $user"
             else
-                echo "Failed to delete $user"
+                echo "[-] Failed to delete $user"
             fi
             echo "---"
         else
             sudo usermod -aG sudo $user
             if [[ $? -eq 0 ]]; then
-                echo "Added $user to sudo"
+                echo "[+] Added $user to sudo"
             else
-                echo "Failed to add $user to sudo"
+                echo "[-] Failed to add $user to sudo"
             fi
             echo "---"
         fi
@@ -85,6 +85,6 @@ while IFS= read -r user; do
 done <<< "$others"
 
 echo ""
-echo "done"
+echo "end of script"
 echo ""
 exit
