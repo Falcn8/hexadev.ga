@@ -48,15 +48,25 @@ while IFS= read -r user; do
     if [[ "$ok" != *"$user"* ]]; then
         okx=$(echo "$aothers" | grep "$user" | tail -n1)
         if [[ "$okx" != *"$user"* ]]; then
-            # echo "$user should be removed"
-            echo "sudo userdel -r $user"
-            echo "---"
             sudo userdel -r $user
-        else
-            # echo "$user should be on others instead of admins"
-            echo "sudo userdel $user sudo"
+            if [[ $? -eq 0 ]]; then
+                echo "Deleted $user"
+            else
+                echo "Failed to delete $user"
+            fi
+            # echo "$user should be removed"
+            # echo "sudo userdel -r $user"
             echo "---"
+        else
             sudo userdel $user sudo
+            if [[ $? -eq 0 ]]; then
+                echo "Removed $user from sudo"
+            else
+                echo "Failed to remove $user from sudo"
+            fi
+            # echo "$user should be on others instead of admins"
+            # echo "sudo userdel $user sudo"
+            echo "---"
         fi
     fi
 done <<< "$notme_sudos"
@@ -66,15 +76,25 @@ while IFS= read -r user; do
     if [[ "$ok" != *"$user"* ]]; then
         okx=$(echo "$aadmins" | grep "$user" | tail -n1)
         if [[ "$okx" != *"$user"* ]]; then
-            # echo "$user should be removed"
-            echo "sudo userdel -r $user"
-            echo "---"
             sudo userdel -r $user
-        else
-            # echo "$user should be on admins instead of others"
-            echo "sudo usermod -aG $user"
+            if [[ $? -eq 0 ]]; then
+                echo "Deleted $user"
+            else
+                echo "Failed to delete $user"
+            fi
+            # echo "$user should be removed"
+            # echo "sudo userdel -r $user"
             echo "---"
+        else
             sudo usermod -aG $user
+            if [[ $? -eq 0 ]]; then
+                echo "Added $user to sudo"
+            else
+                echo "Failed to add $user to sudo"
+            fi
+            # echo "$user should be on admins instead of others"
+            # echo "sudo usermod -aG $user"
+            echo "---"
         fi
     fi
 done <<< "$others"
