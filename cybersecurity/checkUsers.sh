@@ -48,7 +48,7 @@ while IFS= read -r user; do
     if [[ "$ok" != *"$user"* ]]; then
         okx=$(echo "$aothers" | grep "$user" | tail -n1)
         if [[ "$okx" != *"$user"* ]]; then
-            sudo userdel -r $user
+            sudo userdel $user
             if [[ $? -eq 0 ]]; then
                 echo "Deleted $user"
             else
@@ -76,7 +76,7 @@ while IFS= read -r user; do
     if [[ "$ok" != *"$user"* ]]; then
         okx=$(echo "$aadmins" | grep "$user" | tail -n1)
         if [[ "$okx" != *"$user"* ]]; then
-            sudo userdel -r $user
+            sudo userdel $user
             if [[ $? -eq 0 ]]; then
                 echo "Deleted $user"
             else
