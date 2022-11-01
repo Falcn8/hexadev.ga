@@ -23,12 +23,19 @@ echo ""
 
 # Fix the authorized users
 
-echo -n "File for Authorized Administrators: "
-read filename
+echo -n "Have you created xa & xu? (y/n): "
+read response
+if [[ "$response" == "n" ]]; then
+    echo "Go create xa & xu"
+    exit
+fi
+
+# echo -n "File for Authorized Administrators: "
+# read filename
 aadmins=$(cat $filename) || exit
 
-echo -n "File for Authorized Users: "
-read filename
+# echo -n "File for Authorized Users: "
+# read filename
 aothers=$(cat $filename) || exit
 
 echo ""
@@ -39,13 +46,15 @@ while IFS= read -r user; do
     if [[ "$ok" != *"$user"* ]]; then
         okx=$(echo "$aothers" | grep "$user" | tail -n1)
         if [[ "$okx" != *"$user"* ]]; then
-            echo "$user should be removed"
-            echo "sudo userdel -r $user"
-            echo "---"
+            sudo userdel -r $user
+            # echo "$user should be removed"
+            # echo "sudo userdel -r $user"
+            # echo "---"
         else
-            echo "$user should be on others instead of admins"
-            echo "sudo deluser $user sudo"
-            echo "---"
+            sudo userdel $user sudo
+            # echo "$user should be on others instead of admins"
+            # echo "sudo userdel $user sudo"
+            # echo "---"
         fi
     fi
 done <<< "$notme_sudos"
@@ -55,13 +64,15 @@ while IFS= read -r user; do
     if [[ "$ok" != *"$user"* ]]; then
         okx=$(echo "$aadmins" | grep "$user" | tail -n1)
         if [[ "$okx" != *"$user"* ]]; then
-            echo "$user should be removed"
-            echo "sudo userdel -r $user"
-            echo "---"
+            sudo userdel -r $user
+            # echo "$user should be removed"
+            # echo "sudo userdel -r $user"
+            # echo "---"
         else
-            echo "$user should be on admins instead of others"
-            echo "sudo usermod -aG $user"
-            echo "---"
+            sudo usermod -aG $user
+            # echo "$user should be on admins instead of others"
+            # echo "sudo usermod -aG $user"
+            # echo "---"
         fi
     fi
 done <<< "$others"
