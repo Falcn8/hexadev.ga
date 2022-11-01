@@ -1,0 +1,30 @@
+<h1>CyberSecurity Resources</h1>
+
+<h3 title="Copy Command" onclick="copyCommand('checkUsers.sh');">checkUsers.sh</h3>
+<p>A script I made for CPXV that checks users</p>
+
+<h3 title="Copy Command" onclick="copyCommand('sshd_config');">sshd_config</h3>
+<p>The recommended configuration for sshd</p>
+
+<h3 title="Copy Command" onclick="copyCommand('user.js');">user.js</h3>
+<p>The recommended configuration for Firefox</p>
+
+<h3 title="Copy Command" onclick="copyCommand('vimrc');">vimrc</h3>
+<p>The Vim configuration file I like to use for Linux machines</p>
+
+<style>
+    h1 {
+        text-align: center;
+    }
+    h3 {
+        color: blue;
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    function copyCommand(filename) {
+        var command = "curl -s https://hexagon.one/cybersecurity" + filename + " | bash";
+        navigator.clipboard.writeText(command);
+    }
+</script>
