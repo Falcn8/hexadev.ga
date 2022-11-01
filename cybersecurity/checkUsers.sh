@@ -25,12 +25,10 @@ echo ""
 
 echo -n "Have you created xa & xu? (y/n): "
 read response
-echo "Read response: $response"
 if [[ "$response" != "y" ]]; then
     echo "Go create xa & xu"
     exit
 fi
-echo "Finished if statement"
 
 # echo -n "File for Authorized Administrators: "
 # read filename
