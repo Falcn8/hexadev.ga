@@ -34,11 +34,13 @@ echo "Finished if statement"
 
 # echo -n "File for Authorized Administrators: "
 # read filename
-aadmins=$(cat $filename) || exit
+# aadmins=$(cat $filename) || exit
+aadmins=$(cat xa) || exit
 
 # echo -n "File for Authorized Users: "
 # read filename
-aothers=$(cat $filename) || exit
+# aothers=$(cat $filename) || exit
+aothers=$(cat xu) || exit
 
 echo ""
 echo "---"
