@@ -42,6 +42,7 @@ echo ""
 echo "---"
 
 while IFS= read -r user; do
+    echo "Checking $user"
     ok=$(echo "$aadmins" | grep "$user" | tail -n1)
     if [[ "$ok" != *"$user"* ]]; then
         okx=$(echo "$aothers" | grep "$user" | tail -n1)
@@ -60,6 +61,7 @@ while IFS= read -r user; do
 done <<< "$notme_sudos"
 
 while IFS= read -r user; do
+    echo "Checking $user"
     ok=$(echo "$aothers" | grep "$user" | tail -n1)
     if [[ "$ok" != *"$user"* ]]; then
         okx=$(echo "$aadmins" | grep "$user" | tail -n1)
