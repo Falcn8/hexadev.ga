@@ -48,13 +48,13 @@ while IFS= read -r user; do
         if [[ "$okx" != *"$user"* ]]; then
             sudo userdel -r $user
             # echo "$user should be removed"
-            # echo "sudo userdel -r $user"
-            # echo "---"
+            echo "sudo userdel -r $user"
+            echo "---"
         else
             sudo userdel $user sudo
             # echo "$user should be on others instead of admins"
-            # echo "sudo userdel $user sudo"
-            # echo "---"
+            echo "sudo userdel $user sudo"
+            echo "---"
         fi
     fi
 done <<< "$notme_sudos"
@@ -66,13 +66,13 @@ while IFS= read -r user; do
         if [[ "$okx" != *"$user"* ]]; then
             sudo userdel -r $user
             # echo "$user should be removed"
-            # echo "sudo userdel -r $user"
-            # echo "---"
+            echo "sudo userdel -r $user"
+            echo "---"
         else
             sudo usermod -aG $user
             # echo "$user should be on admins instead of others"
-            # echo "sudo usermod -aG $user"
-            # echo "---"
+            echo "sudo usermod -aG $user"
+            echo "---"
         fi
     fi
 done <<< "$others"
