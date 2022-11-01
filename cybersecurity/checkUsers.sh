@@ -73,7 +73,7 @@ while IFS= read -r user; do
             fi
             echo "---"
         else
-            sudo usermod -aG $user
+            sudo usermod -aG sudo $user
             if [[ $? -eq 0 ]]; then
                 echo "Added $user to sudo"
             else
