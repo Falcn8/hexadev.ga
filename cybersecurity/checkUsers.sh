@@ -15,6 +15,7 @@ while IFS= read -r user; do
 done <<< "$temp"
 
 others=${others::-1}
+others=$(tr -s ' ' '\n' <<< "$others")
 
 echo "Admins: "$sudos
 echo "Others: "$others
