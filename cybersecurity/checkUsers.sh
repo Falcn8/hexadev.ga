@@ -46,15 +46,15 @@ while IFS= read -r user; do
     if [[ "$ok" != *"$user"* ]]; then
         okx=$(echo "$aothers" | grep "$user" | tail -n1)
         if [[ "$okx" != *"$user"* ]]; then
-            sudo userdel -r $user
             # echo "$user should be removed"
             echo "sudo userdel -r $user"
             echo "---"
+            sudo userdel -r $user
         else
-            sudo userdel $user sudo
             # echo "$user should be on others instead of admins"
             echo "sudo userdel $user sudo"
             echo "---"
+            sudo userdel $user sudo
         fi
     fi
 done <<< "$notme_sudos"
@@ -64,15 +64,15 @@ while IFS= read -r user; do
     if [[ "$ok" != *"$user"* ]]; then
         okx=$(echo "$aadmins" | grep "$user" | tail -n1)
         if [[ "$okx" != *"$user"* ]]; then
-            sudo userdel -r $user
             # echo "$user should be removed"
             echo "sudo userdel -r $user"
             echo "---"
+            sudo userdel -r $user
         else
-            sudo usermod -aG $user
             # echo "$user should be on admins instead of others"
             echo "sudo usermod -aG $user"
             echo "---"
+            sudo usermod -aG $user
         fi
     fi
 done <<< "$others"
